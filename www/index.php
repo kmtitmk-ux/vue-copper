@@ -18,18 +18,7 @@ if (!empty($_POST)) {
 </head>
 <body>
     <div id="app">
-        <div>
-            <croppa v-model="myCroppa" canvas-color="transparent"></croppa>
-            <p><button @click="generateImage">画像作成</button></p>
-        </div>
-        <div>
-            <img class="output" :src="imgUrl">
-        </div>
-        <form action="/" method="post">
-            <input type="text" name="filename">
-            <input type="hidden" name="img" :value="imgUrl">
-            <button type="submit">送信する</button>
-        </form>
+        <croppa-component></croppa-component>
     </div>
     <script src="/js/app.js"></script>
 </body>
