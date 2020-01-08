@@ -15,9 +15,6 @@
 </template>
 
 <script>
-    import Vue from 'vue'
-    import Croppa from 'vue-croppa'
-    import 'vue-croppa/dist/vue-croppa.css'
     import axios from 'axios'
 
     export default {
@@ -26,9 +23,6 @@
                 myCroppa: null,
                 imgUrl: ''
             }
-        },
-        created: function() {
-            Vue.use(Croppa)
         },
         methods: {
             generateImage: function () {
