@@ -1,13 +1,3 @@
-<?php
-if (!empty($_POST)) {
-    $data = $_POST['img'];
-    list($type, $data) = explode(';', $data);
-    list(, $data) = explode(',', $data);
-    $data = base64_decode($data);
-    $file_name = 'uploads/'.$_POST['filename'].'.png';
-    file_put_contents($file_name, $data);
-}
-?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>

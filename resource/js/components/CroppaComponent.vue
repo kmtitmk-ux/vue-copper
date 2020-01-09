@@ -4,24 +4,16 @@
             <croppa v-model="myCroppa" canvas-color="transparent"></croppa>
             <p><button @click="generateImage">画像作成</button></p>
         </div>
-        <div>
-            <img class="output" :src="imgUrl">
-        </div>
-        <form action="/" method="post">
-            <input type="hidden" name="img" :value="imgUrl">
-            <button type="submit">送信する</button>
-        </form>
     </div>
 </template>
 
 <script>
     import axios from 'axios'
-
+    
     export default {
         data: function() {
             return {
                 myCroppa: null,
-                imgUrl: ''
             }
         },
         methods: {
@@ -31,7 +23,17 @@
                     alert('no image')
                     return
                 }
-                this.imgUrl = url
+
+                var params = new URLSearchParams();
+                params.append("imgUrl", url);
+                axios
+                    .post('/save.php', params)
+                    .then(function(response) {
+                        console.log(response.data)
+                    })
+                    .catch(error => {
+                        console.log(error.response);
+                    });
             },
         }
     }
